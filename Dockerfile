@@ -13,7 +13,7 @@ RUN         apk add --no-cache --update \
 USER        container
 ENV         USER=container HOME=/home/container
 
-RUN         apk del fallocate
+RUN         sudo apk del fallocate
 
 WORKDIR     /home/container
 
