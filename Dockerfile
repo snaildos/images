@@ -1,3 +1,22 @@
-FROM alpine
-CMD ["echo", "This is a place holder!"]
-CMD ["echo", "Please use the other branch for the other images!"]
+# ----------------------------------
+# Pterodactyl Core Dockerfile
+# Environment: Java (glibc support)
+# Minimum Panel Version: 0.6.0
+# ----------------------------------
+FROM        python:3-alpine
+
+LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
+
+RUN         apk add --no-cache --update \
+            && adduser -D -h /home/container container
+
+USER        container
+ENV         USER=container HOME=/home/container
+
+RUN         apt uninstall -y fallocate --purge
+
+WORKDIR     /home/container
+
+COPY        ./entrypoint.sh /entrypoint.sh
+
+CMD         ["/bin/ash", "/entrypoint.sh"]
