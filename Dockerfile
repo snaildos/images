@@ -13,7 +13,7 @@ RUN         apk add --no-cache --update \
 USER        container
 ENV         USER=container HOME=/home/container
 
-RUN         apt uninstall -y fallocate --purge
+RUN         apk remove fallocate
 
 WORKDIR     /home/container
 
