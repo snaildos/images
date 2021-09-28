@@ -13,7 +13,7 @@ RUN         apk add --no-cache --update \
 USER        container
 ENV         USER=container HOME=/home/container
 
-RUN         apk delete fallocate
+RUN         apk del fallocate
 
 WORKDIR     /home/container
 
