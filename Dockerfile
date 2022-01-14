@@ -1,4 +1,4 @@
-FROM        --platform=$TARGETOS/$TARGETARCH openjdk:17-slim
+FROM        openjdk:17-slim
 
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
