@@ -1,5 +1,8 @@
 FROM        openjdk:17-slim
 
+ENV http_proxy=http:...
+ENV https_proxy=http:..
+
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
 RUN 		apt-get update -y \
