@@ -1,29 +1,13 @@
-# ----------------------------------
-# Pterodactyl Core Dockerfile
-# Environment: Java (glibc support)
-# Minimum Panel Version: 0.6.0
-# ----------------------------------
-FROM        python:3-bullseye
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.8-alpine
 
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
-USER        root
-
-RUN         apt update \
-            && apt -y install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip \
-            && useradd -m -d /home/container container
-
-RUN         chmod 000 /usr/bin/fallocate
-
-RUN         chmod 000 /bin/dd
+RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
+				&& adduser -D -h /home/container container
 
 USER        container
-
 ENV         USER=container HOME=/home/container
-
-
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
-
-CMD         ["/bin/bash", "/entrypoint.sh"]
+CMD         [ "/bin/ash", "/entrypoint.sh" ]
