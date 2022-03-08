@@ -1,13 +1,14 @@
-FROM        --platform=$TARGETOS/$TARGETARCH python:3.8-alpine
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.9-slim
 
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
-RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
-				&& adduser -D -h /home/container container
+RUN         apt update \
+            && apt -y install git gcc g++ ca-certificates dnsutils curl iproute2 ffmpeg procps \
+            && useradd -m -d /home/container container
 
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
-CMD         [ "/bin/ash", "/entrypoint.sh" ]
+CMD         ["/bin/bash", "/entrypoint.sh"]
