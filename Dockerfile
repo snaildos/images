@@ -3,7 +3,7 @@ FROM        python:3.9-slim
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
 RUN         apt update \
-            && apt -y install git gcc g++ ca-certificates dnsutils curl iproute2 ffmpeg procps \
+            && apt -y install git gcc g++ ca-certificates cmake make sqlite  dnsutils curl iproute2 ffmpeg procps zip \
             && useradd -m -d /home/container container
 
 USER        container
