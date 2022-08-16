@@ -3,7 +3,7 @@ FROM        openjdk:17-slim
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
 RUN 		apt-get update -y \
- 			&& apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 screen fuser \
+ 			&& apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 screen psmisc \
  			&& useradd -d /home/container -m container
 
 USER        container
