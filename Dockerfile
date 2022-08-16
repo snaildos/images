@@ -1,12 +1,9 @@
 FROM        openjdk:17-slim
 
-ENV http_proxy=http:...
-ENV https_proxy=http:..
-
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
 RUN 		apt-get update -y \
- 			&& apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 \
+ 			&& apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig libfreetype6 tzdata iproute2 libstdc++6 screen fuser \
  			&& useradd -d /home/container -m container
 
 USER        container
