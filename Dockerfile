@@ -1,6 +1,6 @@
 FROM        node:14-buster-slim
 
-LABEL       author="SnailDOS" maintainer="zarasoonich@hotmail.com"
+LABEL       author="SnailDOS" maintainer="snaildos.com"
 
 USER        root
 
