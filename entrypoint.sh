@@ -13,6 +13,7 @@ echo Initializing LavOS powered by CreatOS
 
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -q --show-progress
+wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o application.yml -q --show-progress
 # Run the Server
 eval ${MODIFIED_STARTUP}
 echo LavaOS starting!
