@@ -9,8 +9,10 @@ export INTERNAL_IP
 MODIFIED_STARTUP=$(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
+echo Initializing LavOS powered by CreatOS
 
-echo Server starting!
+echo Installing Lavalink v3.7.6...
+wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -q --show-progress
 # Run the Server
 eval ${MODIFIED_STARTUP}
-echo Started!
+echo LavaOS starting!
