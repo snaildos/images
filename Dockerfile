@@ -1,11 +1,11 @@
-FROM        debian:10-slim
+FROM        openjdk:17-slim
 
 LABEL       author="SnailDOS" maintainer="snaildos@snaildos.com"
 
 USER        root
 
 RUN         apt update \
-            && apt -y install iproute2 git ca-certificates dnsutils tzdata zip tar curl build-essential libssl-dev libtool toilet toilet-fonts \
+            && apt -y install iproute2 git ca-certificates dnsutils tzdata zip wget tar curl build-essential libssl-dev libtool toilet toilet-fonts \
             && useradd -m -d /home/container container
 
 RUN         chmod 000 /usr/bin/fallocate
