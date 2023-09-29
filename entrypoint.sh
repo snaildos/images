@@ -16,6 +16,7 @@ rm Lavalink.jar -R
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -q --show-progress
 echo Installed
+toilet -f mono9 'LavaOS'
 # Run the Server
 eval ${MODIFIED_STARTUP}
 echo LavaOS starting!
