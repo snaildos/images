@@ -11,7 +11,9 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
 echo Checking latest version...
-# wget --max-redirect=0 https://cdn.snaildos.com/lavaosupdate -O .lavaosupdate -q 
+touch .lavaosupdate
+rm .lavaosupdate
+wget --max-redirect=0 https://cdn.snaildos.com/lavaosupdate -O .lavaosupdate -q 
 latestver=`cat .lavaosupdate`
 
 if [ ! -f ".lavaos" ]; then
@@ -30,6 +32,7 @@ if [[ $(grep -L $latestver .lavaos) ]]; then
   echo Removing old configuration files...
   rm .lavaos
   echo $latestver > .lavaos;
+  echo Completed Upgrade
 fi
 
 echo Validating Configuration...
@@ -53,6 +56,7 @@ echo Installed $latestver
 fi
 
 echo Intialization sequence complete
+echo Welcome to LavaOS
 toilet -f mono9 'LavaOS'
 
 # Run the Server
