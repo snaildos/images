@@ -11,7 +11,7 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
 
-if [ -f ".lavaos" ]; then
+if [ ! -f ".lavaos" ]; then
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed v3.7.6
