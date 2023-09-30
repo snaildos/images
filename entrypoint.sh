@@ -15,7 +15,13 @@ echo Uninstalling previous versions of Lavalink...
 rm Lavalink.jar -R
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -q --show-progress
-echo Installed
+echo Installed v3.7.6
+echo Validating Configuration...
+if [ ! -f "application.yml" ]; then
+   wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o application.yml -q --show-progress
+   echo Installed default config
+fi
+echo Intialization sequence complete
 toilet -f mono9 'LavaOS'
 # Run the Server
 eval ${MODIFIED_STARTUP}
