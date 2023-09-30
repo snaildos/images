@@ -15,11 +15,16 @@ if [ -f ".lavaos" ]; then
 echo Uninstalling previous versions of Lavalink...
 rm Lavalink.jar -R
 fi
+
+if [ -f ".lavaos" ]; then
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed v3.7.6
+fi
+
 echo Validating Configuration...
 if [ ! -f ".lavaos" ]; then
+   echo Skipping installing Lavalink package, install LavaOS first...
    echo LavaOS has not been installed yet
    rm application.yml
    wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -O application.yml -q --show-progress
