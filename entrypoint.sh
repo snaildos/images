@@ -11,8 +11,10 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
 
+if [ -f ".lavaos" ]; then
 echo Uninstalling previous versions of Lavalink...
 rm Lavalink.jar -R
+fi
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed v3.7.6
@@ -22,6 +24,10 @@ if [ ! -f ".lavaos" ]; then
    rm application.yml
    wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -O application.yml -q --show-progress
    echo 376 > .lavaos
+   echo LavaOS has been installed
+   echo Rebooting...
+   exit
+   exit
 fi
 echo Intialization sequence complete
 toilet -f mono9 'LavaOS'
