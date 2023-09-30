@@ -18,7 +18,7 @@ latestver=`cat .lavaosupdate`
 
 if [ ! -f ".lavaos" ]; then
 echo Installing Lavalink $latestver
-wget --max-redirect=0 https://cloud.snaildos.com/s/p2fy86qE6w6WriJ/download/Lavalink.jar -O Lavalink.jar -q --show-progress
+wget --max-redirect=0 https://creatable.s3.us-east-005.backblazeb2.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed $latestver
 fi
 
@@ -27,7 +27,7 @@ if [[ $(grep -L $latestver .lavaos) ]]; then
   echo Uninstalling previous versions of Lavalink...
   rm Lavalink.jar -R
   echo Installing new  version of Lavalink $latestver
-  wget --max-redirect=0 https://cloud.snaildos.com/s/p2fy86qE6w6WriJ/download/Lavalink.jar -O Lavalink.jar -q --show-progress
+  wget --max-redirect=0 https://creatable.s3.us-east-005.backblazeb2.com/Lavalink.jar -O Lavalink.jar -q --show-progress
   echo Installed $latestver
   echo Removing old configuration files...
   rm .lavaos
@@ -51,7 +51,7 @@ fi
 if [ ! -f "Lavalink.jar" ]; then
 echo Lavalink package is missing, re-installing...
 echo Installing Lavalink $latestver
-wget --max-redirect=0 https://cloud.snaildos.com/s/p2fy86qE6w6WriJ/download/Lavalink.jar -O Lavalink.jar -q --show-progress
+wget --max-redirect=0 https://creatable.s3.us-east-005.backblazeb2.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed $latestver
 fi
 
