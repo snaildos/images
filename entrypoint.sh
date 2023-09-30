@@ -21,11 +21,15 @@ echo Installed $latestver
 fi
 
 if [[ $(grep -L $latestver .lavaos) ]]; then
+  echo New update found...
   echo Uninstalling previous versions of Lavalink...
   rm Lavalink.jar -R
-  echo Installing Lavalink $latestver
+  echo Installing new  version of Lavalink $latestver
   wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
-  echo Installed $latestver;
+  echo Installed $latestver
+  echo Removing old configuration files...
+  rm .lavaos
+  echo $latestver > .lavaos;
 fi
 
 echo Validating Configuration...
