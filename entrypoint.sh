@@ -11,7 +11,7 @@ echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
 echo Checking latest version...
-wget --max-redirect=0 https://cdn.snaildos.com/lavaosupdate -O .lavaosupdate -q --show-progress
+# wget --max-redirect=0 https://cdn.snaildos.com/lavaosupdate -O .lavaosupdate -q 
 latestver=`cat .lavaosupdate`
 
 if [ ! -f ".lavaos" ]; then
