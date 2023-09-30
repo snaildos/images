@@ -17,9 +17,11 @@ echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -q --show-progress
 echo Installed v3.7.6
 echo Validating Configuration...
-if [ ! -f "application.yml" ]; then
+if [ ! -f ".lavaos" ]; then
+   echo LavaOS has not been installed yet
+   rm application.yml
    wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -o application.yml -q --show-progress
-   echo Installed default config
+   echo 376 > .lavaos
 fi
 echo Intialization sequence complete
 toilet -f mono9 'LavaOS'
