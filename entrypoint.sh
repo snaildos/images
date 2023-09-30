@@ -12,17 +12,14 @@ toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
 
 if [ -f ".lavaos" ]; then
-echo Uninstalling previous versions of Lavalink...
-rm Lavalink.jar -R
-fi
-
-if [ -f ".lavaos" ]; then
 echo Installing Lavalink v3.7.6...
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
 echo Installed v3.7.6
 fi
 
-if [[ $(grep -L "376" .lavaos) ]]; then   
+if [[ $(grep -L "376" .lavaos) ]]; then
+  echo Uninstalling previous versions of Lavalink...
+  rm Lavalink.jar -R
   echo Installing Lavalink v3.7.6...
   wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
   echo Installed v3.7.6; 
