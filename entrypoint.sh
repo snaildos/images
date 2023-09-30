@@ -10,19 +10,22 @@ MODIFIED_STARTUP=$(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 toilet -f mono9 -F gay 'CreatOS'
 echo Initializing LavOS powered by CreatOS
+echo Checking latest version...
+wget --max-redirect=0 https://cdn.snaildos.com/lavaosupdate -O .lavaosupdate -q --show-progress
+latestver=`cat .lavaosupdate`
 
 if [ ! -f ".lavaos" ]; then
-echo Installing Lavalink v3.7.6...
+echo Installing Lavalink $latestver
 wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
-echo Installed v3.7.6
+echo Installed $latestver
 fi
 
-if [[ $(grep -L "376" .lavaos) ]]; then
+if [[ $(grep -L $latestver .lavaos) ]]; then
   echo Uninstalling previous versions of Lavalink...
   rm Lavalink.jar -R
-  echo Installing Lavalink v3.7.6...
+  echo Installing Lavalink $latestver
   wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
-  echo Installed v3.7.6; 
+  echo Installed $latestver;
 fi
 
 echo Validating Configuration...
@@ -31,11 +34,18 @@ if [ ! -f ".lavaos" ]; then
    echo LavaOS has not been installed yet
    rm application.yml
    wget --max-redirect=0 application.yml https://raw.githubusercontent.com/freyacodes/Lavalink/master/LavalinkServer/application.yml.example -O application.yml -q --show-progress
-   echo 376 > .lavaos
+   echo $latestver > .lavaos
    echo LavaOS has been installed
    echo Rebooting...
    exit
    exit
+fi
+
+if [ ! -f "Lavalink.jar" ]; then
+echo Lavalink package is missing, re-installing...
+echo Installing Lavalink $latestver
+wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
+echo Installed $latestver
 fi
 
 echo Intialization sequence complete
