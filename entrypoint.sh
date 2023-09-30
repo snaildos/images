@@ -22,6 +22,12 @@ wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q -
 echo Installed v3.7.6
 fi
 
+if [[ $(grep -L "376" .lavaos) ]]; then   
+  echo Installing Lavalink v3.7.6...
+  wget --max-redirect=0 https://cdn.snaildos.com/Lavalink.jar -O Lavalink.jar -q --show-progress
+  echo Installed v3.7.6; 
+fi
+
 echo Validating Configuration...
 if [ ! -f ".lavaos" ]; then
    echo Skipping installing Lavalink package, install LavaOS first...
@@ -34,8 +40,10 @@ if [ ! -f ".lavaos" ]; then
    exit
    exit
 fi
+
 echo Intialization sequence complete
 toilet -f mono9 'LavaOS'
+
 # Run the Server
 eval ${MODIFIED_STARTUP}
 echo LavaOS starting!
